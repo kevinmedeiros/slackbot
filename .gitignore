@@ -1,0 +1,24 @@
+# Diretórios
+__pycache__/
+*.pyc
+
+# Arquivos de log
+*.log
+
+# Ambiente virtual
+venv/
+.venv/
+.env
+
+# Arquivos de configuração
+instance/
+
+# Arquivos de compilação
+*.py[cod]
+
+# Dependências
+env/
+lib/
+bin/
+include/
+.env
