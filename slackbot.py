@@ -47,9 +47,19 @@ def dolar() -> float:
 
 
 
-# An example of one of your Flask app's routes
 @app.route("/")
 def event_hook(request):
+    """
+    Event hook for the root route.
+
+    Parameters:
+    - request: The request object.
+
+    Returns:
+    - If the token in the JSON dictionary does not match VERIFICATION_TOKEN, returns {"status": 403}.
+    - If the JSON dictionary has a "type" key and its value is "url_verification", returns {"challenge": <challenge value>}.
+    - Otherwise, returns {"status": 500}.
+    """
     json_dict = json.loads(request.body.decode("utf-8"))
     if json_dict["token"] != VERIFICATION_TOKEN:
         return {"status": 403}
@@ -75,6 +85,15 @@ def error_handler(err):
 
 @slack_events_adapter.on("message")
 def listen_for_messages(event_data):
+    """
+    Listens for Slack messages and sends a reply based on the command and current dollar rate.
+
+    Parameters:
+    - event_data: The event data containing the Slack message.
+
+    Returns:
+    - Response: The HTTP response with status code 200.
+    """
     def send_reply(value):
         event_data = value
         message = event_data["event"]
