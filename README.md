@@ -5,7 +5,11 @@ Este é um projeto Flask que retorna a cotação atual do dólar através de uma
 ## Configuração
 
 Antes de executar o projeto, você precisará configurar algumas variáveis de ambiente. Certifique-se de ter um arquivo `.env` na raiz do projeto com as seguintes variáveis:
-SLACK_SIGNING_SECRET=<seu_slack_signing_secret> SLACK_BOT_TOKEN=<seu_slack_bot_token> VERIFICATION_TOKEN=<seu_verification_token> ```
+```
+SLACK_SIGNING_SECRET=<seu_slack_signing_secret> 
+SLACK_BOT_TOKEN=<seu_slack_bot_token> 
+VERIFICATION_TOKEN=<seu_verification_token> 
+```
 
 ## Instalação
 Siga as etapas abaixo para configurar e executar o projeto:
