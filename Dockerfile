@@ -11,9 +11,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the project files to the working directory
 COPY . .
 
-# Expose the port on which the Flask app will run
-EXPOSE 3000
-
 # Set the environment variables
 # Run the Flask app
 CMD ["python", "slackbot.py"]
