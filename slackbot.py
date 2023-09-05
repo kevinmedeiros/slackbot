@@ -1,3 +1,4 @@
+from aiohttp import JsonPayload
 from flask import Flask, Response
 from slackeventsapi import SlackEventAdapter
 import os
@@ -60,7 +61,7 @@ def event_hook(request):
     - If the JSON dictionary has a "type" key and its value is "url_verification", returns {"challenge": <challenge value>}.
     - Otherwise, returns {"status": 500}.
     """
-    json_dict = json.loads(request.body.decode("utf-8"))
+    json_dict = JsonPayload.loads(request.body.decode("utf-8"))
     if json_dict["token"] != VERIFICATION_TOKEN:
         return {"status": 403}
 
